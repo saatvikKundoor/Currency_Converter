@@ -27,4 +27,9 @@ while not(USD_conversion_rates.__contains__(end_cur_type) or end_cur_type == "US
 start_cur_amount = float(input("How much {} are you trying to convert? ".format(start_cur_type)))
 if (start_cur_type == "USD"):
     end_cur_amount = start_cur_amount * USD_conversion_rates[end_cur_type]
-    print("Your {} USD is the equivalent of {:.3} {}".format(start_cur_amount, end_cur_amount, end_cur_type))
+    print("Your {} USD is around {:.3f} {}".format(start_cur_amount, end_cur_amount, end_cur_type))
+else: 
+    usd_amount = start_cur_amount / USD_conversion_rates[start_cur_type]
+    end_cur_amount = usd_amount * USD_conversion_rates[end_cur_type]
+    print("Your {:.3f} {} is around {:.3f} {}".format(start_cur_amount,start_cur_type,end_cur_amount,end_cur_type + "\n(Caution: converted amount may be a little off)"))
+
