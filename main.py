@@ -14,18 +14,17 @@ USD_conversion_rates = {
         "JMD" : 160.13865,
         "VND" : 26312.32778,
     }
-
 while not(USD_conversion_rates.__contains__(start_cur_type) or start_cur_type == "USD"):
     print("Sorry! This currency is not included.")
     start_cur_type = str(input("What currency are you trying to convert? "))
 
 end_cur_type = str(input("What currency are you trying to convert to? "))
 
-while not(USD_conversion_rates.__contains__(start_cur_type) or end_cur_type == "USD"):
+while not(USD_conversion_rates.__contains__(end_cur_type) or end_cur_type == "USD"):
     print("Sorry! This currency is not included.")
     end_cur_type = str(input("What currency are you trying to convert to? "))
 
 start_cur_amount = float(input("How much {} are you trying to convert? ".format(start_cur_type)))
 if (start_cur_type == "USD"):
-    end_cur_amount == start_cur_amount * USD_conversion_rates[end_cur_type]
-    print("Your {} USD is the equivalent of {} {}".format())
+    end_cur_amount = start_cur_amount * USD_conversion_rates[end_cur_type]
+    print("Your {} USD is the equivalent of {:.3} {}".format(start_cur_amount, end_cur_amount, end_cur_type))
